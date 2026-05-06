@@ -199,17 +199,17 @@ The robotic arm was experimentally validated using:
 
 Large CAD assemblies and datasets are available externally due to GitHub storage limitations.
 
-## CAD Files
+## Simscape Files
 
-Add your Google Drive or Zenodo link here.
+[Add your Google Drive or Zenodo link here.](https://fengbuedu-my.sharepoint.com/:f:/g/personal/mustafa_mahmoud_feng_bu_edu_eg/IgDwnvKL0MftTI0uu8EfR26uAa9j3MD-qh_77m_dvvp4D-4?e=qIZcEw)
 
 ## Full Dataset
 
-Add dataset link here.
+[Add dataset link here.](https://fengbuedu-my.sharepoint.com/:u:/g/personal/mustafa_mahmoud_feng_bu_edu_eg/IQA2pgojbz74T5KtOFfe2908AXsn7DkmEhMwXiaGl9RJHQY?e=99IeS3)
 
 ## Experimental Videos
 
-Add video link here.
+[Add video link here.](https://fengbuedu-my.sharepoint.com/:f:/g/personal/mustafa_mahmoud_feng_bu_edu_eg/IgCefj6fbzPsQKXhwvUWbxgzAedqS59uq-s0L4gDpFEWtQg?e=J2My6y)
 
 ---
 
@@ -232,11 +232,13 @@ This project is licensed under the MIT License.
 
 # Contact
 
-Mostafa Mahmoud Elsayed
+Mustafa Mahmoud Elsayed
 
 Faculty of Engineering – Mechatronics Department
 
 For research collaboration or questions, please open an issue in this repository.
+
+Email: mustafa.mahmoud@feng.bu.edu.eg
 
 ---
 
