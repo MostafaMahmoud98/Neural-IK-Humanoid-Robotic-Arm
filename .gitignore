@@ -1,0 +1,34 @@
+# MATLAB autosave
+*.asv
+
+# MATLAB backup files
+*.m~
+
+# Simulink generated files
+*.slxc
+*.autosave
+*.mex*
+*.mdl.r201*
+*.slx.r201*
+
+# Cache and temp
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Large datasets (optional)
+*.zip
+*.rar
+
+# MATLAB preferences
+prefdir/
+
+# Generated figures
+*.fig~
