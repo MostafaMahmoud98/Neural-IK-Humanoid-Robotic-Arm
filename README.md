@@ -1,6 +1,6 @@
 # Neural-IK-Humanoid-Robotic-Arm
 
-![Robot Overview](docs/robot_overview.png)
+![Robot Overview](robot_overview.png)
 
 ## Overview
 
