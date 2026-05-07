@@ -49,18 +49,18 @@ Neural-IK-Humanoid-Robotic-Arm/
 ## Folder Description
 
 ### kinematics/
-Forward and inverse kinematics implementation and symbolic derivation.
+Forward and inverse kinematics implementation.
 
 ### matlab_files/
-MATLAB scripts for simulation, workspace generation, and analysis.
+MATLAB scripts for simulation and analysis.
 
 ### nn_training/
-Neural-network training scripts and pretrained inverse kinematics models.
+Neural-network training scripts.
 
 ### control_optimization/
 PID tuning using:
 - Genetic Algorithm (GA)
-- Particle Swarm Optimization (PSO)
+- Particle Swarm Optimisation (PSO)
 - Honey Badger Algorithm (HBA)
 
 ---
