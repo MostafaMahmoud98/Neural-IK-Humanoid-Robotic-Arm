@@ -1,5 +1,5 @@
 clc;clear;
-%% Problem Definiton
+%% Problem Definition
 
 problem.CostFunction = @(k)optimize_PID(k);  % Cost Function
 problem.nVar = 3;       % Number of Unknown (Decision) Variables
@@ -10,11 +10,11 @@ problem.VarMax = [3 100 100];   % Upper Bound of Decision Variables
 
 params.MaxIt = 100;        % Maximum Number of Iterations
 params.nPop = 50;           % Population Size (Swarm Size)
-params.w = 1;               % Intertia Coefficient
+params.w = 1;               % Inertia Coefficient
 params.wdamp = 0.99;        % Damping Ratio of Inertia Coefficient
 params.c1 = 2;              % Personal Acceleration Coefficient
 params.c2 = 2;              % Social Acceleration Coefficient
-params.ShowIterInfo = true; % Flag for Showing Iteration Informatin
+params.ShowIterInfo = true; % Flag for showing iteration information
 
 %% Calling PSO
 
@@ -32,4 +32,3 @@ xlabel('Iteration');
 ylabel('Best Cost');
 grid on;
 BestSol = out.BestSol
-

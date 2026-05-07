@@ -1,6 +1,6 @@
 function out = PSO(problem, params)
 
-    %% Problem Definiton
+    %% Problem Definition
 
     CostFunction = problem.CostFunction;  % Cost Function
 
@@ -18,7 +18,7 @@ function out = PSO(problem, params)
 
     nPop = params.nPop;     % Population Size (Swarm Size)
 
-    w = params.w;           % Intertia Coefficient
+    w = params.w;           % Inertia Coefficient
     wdamp = params.wdamp;   % Damping Ratio of Inertia Coefficient
     c1 = params.c1;         % Personal Acceleration Coefficient
     c2 = params.c2;         % Social Acceleration Coefficient

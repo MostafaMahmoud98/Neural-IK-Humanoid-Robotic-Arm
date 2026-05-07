@@ -5,7 +5,7 @@ G = tf(5708, [1, 465.6, 5709]);
 costFunction = @(K) computeITAE(K, G);
 
 % Set bounds for the PID parameters [Kp, Ki, Kd]
-% Adjust bounds as needed based on your system’s requirements
+% Adjust bounds as needed based on your system requirements
 lb = [0, 0, 0];     % Lower bounds for Kp, Ki, Kd
 ub = [100, 100, 100]; % Upper bounds for Kp, Ki, Kd
 

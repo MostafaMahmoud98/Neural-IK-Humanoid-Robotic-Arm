@@ -49,11 +49,20 @@ function out = RunGA(problem, params)
         
         % Selection Probabilities
         c = [pop.Cost];
+        finiteCosts = c(isfinite(c));
+        if isempty(finiteCosts)
+            c = ones(size(c));
+        elseif any(~isfinite(c))
+            c(~isfinite(c)) = max(finiteCosts);
+        end
         avgc = mean(c);
-        if avgc ~= 0
+        if isfinite(avgc) && avgc ~= 0
             c = c/avgc;
         end
         probs = exp(-beta*c);
+        if ~any(isfinite(probs)) || sum(probs) == 0
+            probs = ones(size(c));
+        end
         
         % Initialize Offsprings Population
         popc = repmat(empty_individual, nC/2, 2);
@@ -103,7 +112,7 @@ function out = RunGA(problem, params)
         % Update Best Cost of Iteration
         bestcost(it) = bestsol.Cost;
 
-        % Display Itertion Information
+        % Display Iteration Information
         disp(['Iteration ' num2str(it) ': Best Cost = ' num2str(bestcost(it))]);
         
     end
