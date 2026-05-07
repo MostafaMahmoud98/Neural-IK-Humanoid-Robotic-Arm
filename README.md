@@ -148,8 +148,8 @@ run('GA.m')
 If you use this work, please cite:
 
 ```bibtex
-@misc{mahmoud_neural_ik_humanoid_arm,
-  author = {Mostafa Mahmoud Elsayed},
+@misc{ ,
+  author = {Mustafa Mahmoud Elsayed},
   title = {Neural IK Humanoid Robotic Arm},
   year = {2026},
   url = {https://github.com/MostafaMahmoud98/Neural-IK-Humanoid-Robotic-Arm}
