@@ -7,13 +7,19 @@ L(6) = Link('d', 0, 'a', 110, 'alpha', 0, 'qlim', [-90 90]*pi/180);
 
 Arm = SerialLink(L, 'name', 'Humanoid Arm');
 
+targetPose = SE3(400, 200, 100) * SE3.Rz(deg2rad(90));
+initialGuess = zeros(1, 6);
 
-T=SE3(400,200,100)*SE3.Rz(90);
-pos = Arm.ikine(Ts1, [0 0 0 0 0], 'mask', [1 1 1 1 1 1], 'ikineopts', 'm');
-Arm.teach(pos);
-th1=q(1)*180/pi;
-th2=q(2)*180/pi;
-th3=q(3)*180/pi;
-th4=q(4)*180/pi;
-th5=q(5)*180/pi;
-th6=q(6)*180/pi;
+q = Arm.ikine(targetPose, initialGuess, 'mask', [1 1 1 1 1 1]);
+Arm.teach(q);
+
+jointAnglesDeg = q * 180/pi;
+th1 = jointAnglesDeg(1);
+th2 = jointAnglesDeg(2);
+th3 = jointAnglesDeg(3);
+th4 = jointAnglesDeg(4);
+th5 = jointAnglesDeg(5);
+th6 = jointAnglesDeg(6);
+
+disp('Joint angles (degrees):');
+disp(jointAnglesDeg);

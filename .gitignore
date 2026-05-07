@@ -1,10 +1,14 @@
-# MATLAB autosave
+# MATLAB autosave and backup files
 *.asv
-
-# MATLAB backup files
 *.m~
+*.bak
+*.slx.original
 
 # Simulink generated files
+slprj/
+*_ert_rtw/
+*_grt_rtw/
+codegen/
 *.slxc
 *.autosave
 *.mex*

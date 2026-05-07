@@ -34,80 +34,112 @@ The project was developed as part of a research study on intelligent and afforda
 
 ```text
 Neural-IK-Humanoid-Robotic-Arm/
-│
-├── kinematics/
-├── matlab_files/
-├── nn_training/
-├── control_optimization/
-├── README.md
-├── LICENSE
-└── .gitignore
+|-- Kinematics/
+|   |-- Armforward.m
+|   `-- inverse6dof.m
+|-- Workspace/
+|   |-- ws6dof.m
+|   `-- ws6dof_random.m
+|-- matlab_files/
+|   |-- ctraj6dof.m
+|   |-- linedraw.m
+|   `-- squareee.m
+|-- nn_training/
+|-- control_optimization/
+|   |-- GA/
+|   |-- Pso/
+|   `-- HBA Code/
+|-- robot_overview.png
+|-- README.md
+|-- LICENSE
+`-- .gitignore
 ```
 
 ---
 
 ## Folder Description
 
-### kinematics/
-Forward and inverse kinematics implementation.
+### Kinematics/
+
+Forward and inverse kinematics examples for the 6-DOF humanoid arm.
+
+### Workspace/
+
+Workspace generation scripts for grid-based and random joint sampling.
 
 ### matlab_files/
-MATLAB scripts for simulation and analysis.
+
+Trajectory generation and plotting scripts for line and closed-path motion.
 
 ### nn_training/
-Neural-network training scripts.
+
+Jupyter notebooks for training the zone-based neural inverse-kinematics models.
 
 ### control_optimization/
-PID tuning using:
+
+PID tuning and simulation files using:
+
 - Genetic Algorithm (GA)
-- Particle Swarm Optimisation (PSO)
+- Particle Swarm Optimization (PSO)
 - Honey Badger Algorithm (HBA)
-
----
-
-## Neural Inverse Kinematics
-
-The inverse kinematics problem is solved using a zone-based neural network architecture trained on a large workspace dataset generated using forward kinematics.
-
-Key characteristics:
-- Workspace segmentation into multiple regions
-- Dedicated neural network for each zone
-- Real-time joint prediction
-- Improved convergence and accuracy
-
----
-
-## Simulation and Control
-
-The framework integrates:
-- MATLAB
-- Simulink
-- Simscape Multibody
-
-for:
-- Dynamic simulation
-- Workspace analysis
-- PID optimization
-- Motion validation
-
----
-
-## Experimental Validation
-
-The robotic arm was experimentally validated using:
-- Real-time trajectory tracking
-- Joint-level control
-- Embedded implementation using Teensy 4.1
 
 ---
 
 ## Software Requirements
 
-- MATLAB R2023b
-- Simulink / Simscape Multibody
-- MATLAB Deep Learning Toolbox
-- MATLAB System Identification Toolbox
-- Arduino IDE 2.3
+- MATLAB R2023b or a compatible MATLAB release
+- Simulink
+- Simscape Multibody
+- Control System Toolbox
+- Global Optimization Toolbox
+- Deep Learning Toolbox
+- System Identification Toolbox
+- Peter Corke Robotics Toolbox for MATLAB (`Link`, `SerialLink`, `SE3`, `transl`, `tr2rpy`)
+- Arduino IDE 2.3 for embedded deployment
+
+---
+
+## Quick Start
+
+From the repository root in MATLAB:
+
+```matlab
+addpath(genpath(pwd));
+```
+
+Run the forward-kinematics viewer:
+
+```matlab
+run('Kinematics/Armforward.m')
+```
+
+Run the inverse-kinematics target example:
+
+```matlab
+run('Kinematics/inverse6dof.m')
+```
+
+Run a trajectory example:
+
+```matlab
+run('matlab_files/linedraw.m')
+```
+
+For PID optimization, open the matching folder first so each script resolves its local `n.slx` model:
+
+```matlab
+cd('control_optimization/GA')
+run('GA.m')
+```
+
+---
+
+## Notes
+
+- Kinematic link dimensions are expressed in millimeters.
+- Joint angles are stored in radians for Robotics Toolbox calls and converted to degrees only for display, export, or servo offset data.
+- The example scripts use `deg2rad(90)` for 90-degree end-effector Z rotations.
+- Generated Simulink cache folders such as `slprj/` and compiled cache files such as `*.slxc` should not be committed.
 
 ---
 
@@ -116,9 +148,15 @@ The robotic arm was experimentally validated using:
 If you use this work, please cite:
 
 ```bibtex
-@article{
+@misc{mahmoud_neural_ik_humanoid_arm,
+  author = {Mostafa Mahmoud Elsayed},
+  title = {Neural IK Humanoid Robotic Arm},
+  year = {2026},
+  url = {https://github.com/MostafaMahmoud98/Neural-IK-Humanoid-Robotic-Arm}
 }
 ```
+
+Replace this placeholder with the final paper citation when publication details are available.
 
 ---
 
@@ -131,6 +169,6 @@ This project is licensed under the MIT License.
 ## Contact
 
 Mostafa Mahmoud Elsayed  
-Faculty of Engineering – Mechatronics Department  
+Faculty of Engineering - Mechatronics Department  
 
 Email: mustafa.mahmoud@feng.bu.edu.eg
