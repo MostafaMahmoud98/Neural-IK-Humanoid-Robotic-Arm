@@ -27,9 +27,9 @@ for i = 2:samples
     q4 = ((180)*rand()-90)*pi/180;
     q5 = ((90)*rand()-45)*pi/180;
     q6 = ((180)*rand()-90)*pi/180;
-    
-    th = [q1 q2 q3 q4 q5 q6]*180/pi;
-    
+
+    th = [q1 q2 q3 q4 q5 q6];
+
     T=Arm.fkine(th);
     
     RPY= tr2rpy(T,'arm');
@@ -43,7 +43,7 @@ for i = 2:samples
     pos=[X Y Z];
     
     POSITION=[POSITION;pos];
-    THETA=[THETA;th];
+    THETA=[THETA;th*180/pi];
     ROTATION=[ROTATION;ROT];
 plot3(X ,Y ,Z ,'.' , 'MarkerSize' , 8, 'color',[0 0 1])
 
