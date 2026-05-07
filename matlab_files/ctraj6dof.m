@@ -5,36 +5,43 @@ L(4) = Link('d', 172, 'a', 0, 'alpha', pi/2, 'qlim', [-90 90]*pi/180);
 L(5) = Link('d', -1.65, 'a', 50, 'alpha', -pi/2, 'qlim', [-180 0]*pi/180);
 L(6) = Link('d', 0, 'a', 110, 'alpha', 0, 'qlim', [-90 90]*pi/180);
 
+Arm = SerialLink(L, 'name', 'Humanoid Arm');
 
-T1 = SE3(350,250,100)*SE3.Rz(90);       % initial end effector pose
-T2 = SE3(350,250,300)*SE3.Rz(90);    % final end effector pose
+T1 = SE3(350, 250, 100) * SE3.Rz(deg2rad(90));   % Initial end-effector pose
+T2 = SE3(350, 250, 300) * SE3.Rz(deg2rad(90));   % Final end-effector pose
 
-% T1 = SE3(250,250,200)*SE3.Rz(0);       % initial end effector pose
-% T2 = SE3(250,250,100)*SE3.Rz(0);    % final end effector pose
-t =(0: 0.05:12);
+% T1 = SE3(250, 250, 200) * SE3.Rz(0);
+% T2 = SE3(250, 250, 100) * SE3.Rz(0);
+t = 0:0.05:12;
 time = t';
 
-T3 = T1.ctraj(T2,length(t));
-qs = Arm.ikine(T3, [0 0 0 0 0 0], 'mask', [1 1 1 1 1 1]);
+T3 = T1.ctraj(T2, length(t));
+qs = Arm.ikine(T3, zeros(1, 6), 'mask', [1 1 1 1 1 1]);
 
-path=transl(T3);
-plot3(path(:,1),path(:,2),path(:,3))
+path = transl(T3);
+figure;
+plot3(path(:, 1), path(:, 2), path(:, 3), 'LineWidth', 2);
+grid on;
+xlabel('X [mm]');
+ylabel('Y [mm]');
+zlabel('Z [mm]');
+title('Cartesian trajectory');
 
-th1=qs(:,1)*180/pi;
-th2=qs(:,2)*180/pi;
-th3=qs(:,3)*180/pi;
-th4=qs(:,4)*180/pi;
-th5=qs(:,5)*180/pi;
-th6=qs(:,6)*180/pi;
+th1 = qs(:, 1) * 180/pi;
+th2 = qs(:, 2) * 180/pi;
+th3 = qs(:, 3) * 180/pi;
+th4 = qs(:, 4) * 180/pi;
+th5 = qs(:, 5) * 180/pi;
+th6 = qs(:, 6) * 180/pi;
 
-M1=th1+90;
-M2=th2+90;
-M3=th3+90;
-M4=th4;
-M5=th5;
-M6=th6+90;
-data=[M1 M2 M3 M4 M5 M6];
+M1 = th1 + 90;
+M2 = th2 + 90;
+M3 = th3 + 90;
+M4 = th4;
+M5 = th5;
+M6 = th6 + 90;
+data = [M1 M2 M3 M4 M5 M6];
 
-Arm.plot(qs)
-%plot (t,qs)
-%plot(t,qdd)
+Arm.plot(qs);
+% plot(t, qs)
+% plot(t, qdd)
